@@ -42,8 +42,8 @@ ssh -t $APIUSER@$FB_B "pureobj remote-credentials create $CREDS_ON_B --access-ke
 
 # ========= Enable S3 versioning on both buckets (required for replication targets) =========
 # Use AWS CLI (or any S3 tool) against each array’s S3 data VIP:
-aws --endpoint-url http://$REMOTE_ON_A s3api put-bucket-versioning --bucket $BUCKET_A --versioning-configuration Status=Enabled
-aws --endpoint-url http://$REMOTE_ON_B s3api put-bucket-versioning --bucket $BUCKET_B --versioning-configuration Status=Enabled
+aws --endpoint-url https://$REMOTE_ON_A s3api put-bucket-versioning --bucket $BUCKET_A --versioning-configuration Status=Enabled
+aws --endpoint-url https://$REMOTE_ON_B s3api put-bucket-versioning --bucket $BUCKET_B --versioning-configuration Status=Enabled
 # (Connecting an S3 client and versioning guidance)
 
 # ========= Create replica links in both directions (active-active) =========
